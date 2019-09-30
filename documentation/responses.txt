@@ -1,0 +1,22 @@
+List, Get
+- success: bool
+- metadata: obj
+
+Post, Put
+- success: bool
+- metadata: obj (opc)
+
+Delete
+- success: bool
+
+Error/Exception
+- success: false ( bool )
+- cod: int
+- error: string ( message )
+- metadata: obj ( opc )
+
+Cod Retorno
+
+  Cod. 1 - Token Invalido
+  Cod. 2 - Erro durante a validacao
+  Cod. 3 - Erro ao atualizar DB
