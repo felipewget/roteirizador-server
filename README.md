@@ -1,9 +1,9 @@
 # Roteirizador - Back-End Server
 
-![Clusterized](./src/assets/git/img1.png)
-![Structure](./src/assets/git/img2.png)
-![Log in Mongo](./src/assets/git/img3.png)
-![Response Exemple 1](./src/assets/git/img4.png)
+![Clusterized](./app/publics/assets/git/img1.png)
+![Structure](./app/publics/assets/git/img2.png)
+![Log in Mongo](./app/publics/assets/git/img3.png)
+![Response Exemple 1](./app/publics/assets/git/img4.png)
 
 ## Sobre
 
