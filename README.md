@@ -14,7 +14,7 @@ Este projeto é o back-end de um roterizador, desenvolvivdo com NodeJs, ReactJs,
 - Clusterizado, ele se cria copias de seu próprio projeto em cada nucleo de processamento
 - Estrutura dele é MVC separado por configs de servidor, MVC do projeto e uma pasta documentation
 - Rest ( Mas suporte já implementado para websocket e clusterização dos mesmo através do Redis )
-- .Env
+- .env, existe um envroiment.env, alterar para .env
 - Https se precisar ( use o https://certbot.eff.org/ para adquirir os sertificados pro seu dominio )
 
 ### Ambiente para Rodar o Projeto
