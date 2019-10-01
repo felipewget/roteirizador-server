@@ -23,6 +23,7 @@ registerService.prototype.register = async function( params, app ) {
 
 		let tokensUtil 				= new app.app.utils.tokensUtil;
 		let namesUtil 				= new app.app.utils.namesUtil;
+		let formUtil 				  = new app.app.utils.formUtil;
 
 		let {
 			name,
@@ -31,6 +32,30 @@ registerService.prototype.register = async function( params, app ) {
 		} = params;
 
 		let response = {};
+
+		if( !formUtil.checkHasValue( password ) && !formUtil.checkHasValue( login ) && !formUtil.checkHasValue( name ) ){
+
+      throw new Error("password ou login nao preenchidos")
+
+    }
+
+    if( !formUtil.checkPassword( password ) ){
+
+      throw new Error("password invalido")
+
+    }
+
+    if( !formUtil.checkEmail( login ) ){
+
+      throw new Error("Email Invalido")
+
+    }
+
+		if( !formUtil.checkFullName( name ) ){
+
+      throw new Error("Nome Completo Invalido")
+
+    }
 
 		let obj_user_structure = {
 	 		auth: {
@@ -70,9 +95,7 @@ registerService.prototype.register = async function( params, app ) {
 
 			} else {
 
-					new Throw({
-						message: response_isert.error
-					})
+					throw { message: response_isert.error }
 
 			}
 

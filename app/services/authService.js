@@ -20,6 +20,7 @@ authService.prototype.authenticate = async function( login, password, app ) {
 	let usersInfoDAO 			= new app.app.models.usersInfoDAO( conn );
 	let usersSessionsDAO 	= new app.app.models.usersSessionsDAO( conn );
 	let tokensUtil 				= new app.app.utils.tokensUtil;
+  let formUtil 				  = new app.app.utils.formUtil;
 
 	let response 	= {};
 	let obj_structure_session = {
@@ -39,7 +40,28 @@ authService.prototype.authenticate = async function( login, password, app ) {
 
 	try {
 
-		let { results } = await usersInfoDAO.authenticate( login, password );
+    if( !formUtil.checkHasValue( password ) && !formUtil.checkHasValue( login ) ){
+
+      throw new Error("password ou login nao preenchidos")
+
+    }
+
+    if( !formUtil.checkPassword( password ) ){
+
+      throw new Error("password invalido")
+
+    }
+
+    if( !formUtil.checkEmail( login ) ){
+
+      throw new Error("Email Invalido")
+
+    }
+
+    let password_hash	= await tokensUtil.createUserPasswordToken( password );
+    
+
+		let { results }   = await usersInfoDAO.authenticate( login, password_hash.password );
 
 		if( results.length > 0 ){
 
