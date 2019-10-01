@@ -17,6 +17,11 @@
  	}
  */
 
+ /**
+  * 	Construtor, ao instanciar, seleciona o DB e a collection onde sera feita as requisicoes
+  *
+  *	@param obj 													connection 	Obj de Conezao
+  */
 function RoutesDAO(connection)
 {
 
@@ -26,6 +31,9 @@ function RoutesDAO(connection)
 
 }
 
+/**
+ *  List my routes ( SQL: SELECT collums FROM routes WHERE user_id="user_id" )
+ */
 RoutesDAO.prototype.listMyRoutes = async function( user_id )
 {
 
@@ -37,12 +45,7 @@ RoutesDAO.prototype.listMyRoutes = async function( user_id )
 
   	let query = { 'user_id': 	{ $eq: user_id } };
 
-  	let fields = {
-      // _id: 		1,
-      // link: 		1,
-      // user_id: 	1,
-      // auth: 		1,
-    };
+  	let fields = {};
 
   	let mongoclient = await conn( db_name ).open();
   	let collection  = await mongoclient.collection( collection_name );
@@ -67,6 +70,9 @@ RoutesDAO.prototype.listMyRoutes = async function( user_id )
 
 }
 
+/**
+ *  List route per ID ( SQL: SELECT collums FROM routes WHERE _id="_id" AND user_id="user_id" )
+ */
 RoutesDAO.prototype.getRouteById = async function( _id, user_id )
 {
 
@@ -83,12 +89,7 @@ RoutesDAO.prototype.getRouteById = async function( _id, user_id )
       ]
     };
 
-  	let fields = {
-      // _id: 		1,
-      // link: 		1,
-      // user_id: 	1,
-      // auth: 		1,
-    };
+  	let fields = {};
 
   	let mongoclient = await conn( db_name ).open();
   	let collection  = await mongoclient.collection( collection_name );
@@ -114,6 +115,9 @@ RoutesDAO.prototype.getRouteById = async function( _id, user_id )
 
 }
 
+/**
+ *  Insert Route ( SQL: INSERT INTO (collums) VALUES(values) )
+ */
 RoutesDAO.prototype.save = async function( obj )
 {
 

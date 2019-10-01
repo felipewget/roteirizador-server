@@ -1,5 +1,24 @@
+/**
+ *	routeController
+ *
+ *	Controler com metodos relacionados a rotas( roteirizacao )
+ *
+ *	@author 	Fe Oliveira<felipe.wget@gmail.com>
+ * 	@version 	0.0.1
+ */
 var routeController = function() {} // routeController constructor
 
+
+/**
+ *  Recupera rota por ID
+ *
+ *  @method GET
+ *
+ *  @param  string  route_id
+ *  @param  string  token
+ *
+ *  @return json
+ */
 routeController.prototype.getRouteById = async function(req, res, app) {
 
 	var routeService 	= new ( require("./../services/routeService.js") )();
@@ -21,6 +40,16 @@ routeController.prototype.getRouteById = async function(req, res, app) {
 
 }
 
+
+/**
+ *  Lista minhas rotas
+ *
+ *  @method   GET
+ *
+ *  @param    string  token
+ *
+ *  @return json
+ */
 routeController.prototype.listMyRoutes = async function(req, res, app) {
 
 	var routeService 	= new ( require("./../services/routeService.js") )();
@@ -40,6 +69,17 @@ routeController.prototype.listMyRoutes = async function(req, res, app) {
 
 }
 
+
+/**
+ *  Cria uma rota
+ *
+ *  @method   POST
+ *
+ *  @param    string  token
+ *  @param    string  obj_route
+ *
+ *  @return json
+ */
 routeController.prototype.createRoute = async function(req, res, app) {
 
 	var routeService 	= new ( require("./../services/routeService.js") )();

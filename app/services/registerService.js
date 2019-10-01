@@ -1,5 +1,18 @@
+/**
+ * registerService
+ *
+ * @description Contem servicos relacionados ao registro
+ *
+ * @author Fe Oliveira
+ */
 var registerService = function() {} // registerService constructor
 
+/**
+ *	Registra um usuario
+ *
+ *	@param obj 		params
+ *	@param obj 		app
+ */
 registerService.prototype.register = async function( params, app ) {
 
 	try {
@@ -52,7 +65,7 @@ registerService.prototype.register = async function( params, app ) {
 				delete( response_isert.metadata[0].auth 		);
 				delete( response_isert.metadata[0].updated 	);
 				delete( response_isert.metadata[0].deleted 	);
-				
+
 				return response_isert;
 
 			} else {

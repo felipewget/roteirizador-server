@@ -1,4 +1,6 @@
-// Importar o MongoDB
+/**
+ *  MongoDB Auth Connection
+ */
 
 var mongo = require('mongodb');
 

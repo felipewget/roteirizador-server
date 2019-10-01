@@ -1,24 +1,20 @@
 
 /**
- *  Profile Routes
- *  This archive has routes about user profile page
+ *  Rotas de Roteizizacao
+ *  Este arquivo contem rotas sobre roteirizacao
  */
 module.exports = function(app){
 
     let routeController   = require("./../controllers/routeController.js");
 
+
     /**
-		 *  Update my personal profile`s link   When register was creted random link
-     *                                      and user can update to personal link
-     *                                      one time.
+		 *  Recupera rota por ID
      *
-     *  @method PUT
+     *  @method GET
      *
-		 *  @TODO   It`s check only other profiles to don`t reapeat link but in future,
-     *          I need check pesges and community too
-     *
-     *  @param  string  personal_link
-     *  @param  string  token         Oauth Token
+		 *  @param  string  route_id
+     *  @param  string  token
      *
      *  @return json
 		 */
@@ -26,15 +22,13 @@ module.exports = function(app){
 			( new routeController() ).getRouteById( req, res, app );
 		});
 
+
 		/**
-		 *  Get basic informations about profile
+		 *  Lista minhas rotas
      *
      *  @method   GET
      *
-     *  @internal Used to get header information profile
-     *
-		 *  @param    string  token       Oauth Token
-		 *  @param    string  profile_id
+     *  @param    string  token
      *
      *  @return json
 		 */
@@ -42,15 +36,14 @@ module.exports = function(app){
     	( new routeController() ).listMyRoutes( req, res, app );
     });
 
+
     /**
-		 *  Get basic informations about profile
+		 *  Cria uma rota
      *
-     *  @method   GET
+     *  @method   POST
      *
-     *  @internal Used to get header information profile
-     *
-		 *  @param    string  token       Oauth Token
-		 *  @param    string  profile_id
+     *  @param    string  token
+		 *  @param    string  obj_route
      *
      *  @return json
 		 */

@@ -1,5 +1,21 @@
-var namesUtil = function() {} // namesUtil constructor
+/**
+ *	namesUtil
+ *
+ *	Metodos uteis relacionados ao tratamento de nome
+ *
+ *	@author 	Fe Oliveira<felipe.wget@gmail.com>
+ *
+ * 	@version 	0.0.1
+ */
+ var namesUtil = function() {} // namesUtil constructor
 
+/**
+ *	Formata o nome para um modo valido de insercao
+ *
+ *	@params string name
+ *
+ *	@return obj
+ */
 namesUtil.prototype.formatName = function( name ) {
 
 	var name;
@@ -35,7 +51,7 @@ namesUtil.prototype.formatName = function( name ) {
 				return sucess( response );
 
 			}
-			
+
 
 		});
 
@@ -44,12 +60,12 @@ namesUtil.prototype.formatName = function( name ) {
 		response.cod = 500;
 		response.error = "Problema interno";
 		response.message = "Houve um erro interno, nossos engenheiros ja receberam o log estao trabalhando no caso";
-		
+
 		// console.log( e.message );
 		return sucess( response );
 
 	}
-	
+
 }
 
 module.exports = function(){

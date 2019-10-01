@@ -1,5 +1,21 @@
-var tokensUtil = function() {} // tokensUtil constructor
+/**
+ *	tokensUtil
+ *
+ *	Metodos uteis relacionados aos tokens
+ *
+ *	@author 	Fe Oliveira<felipe.wget@gmail.com>
+ *
+ * 	@version 	0.0.1
+ */
+ var tokensUtil = function() {} // tokensUtil constructor
 
+ /**
+  *	Cria um novo access_token
+  *
+  *	@params string login
+  *
+  *	@return obj
+  */
 tokensUtil.prototype.createAccessToken = function( login ) {
 
 	var sha1 = require('sha1');
@@ -29,9 +45,16 @@ tokensUtil.prototype.createAccessToken = function( login ) {
 
 }
 
-// @TODO
+/**
+ *	Cria um token pelo password
+ *
+ *	@params string password
+ *
+ *	@return obj
+ */
 tokensUtil.prototype.createUserPasswordToken = function( password ) {
 
+	var sha1 = require('sha1');
 	var response = {
 		cod: 200,
 		password: null,
@@ -41,7 +64,7 @@ tokensUtil.prototype.createUserPasswordToken = function( password ) {
 
 		return new Promise((sucess, reject) => {
 
-			response.password = password;
+			response.password = sha1( password );
 			return sucess( response );
 
 		});
@@ -52,7 +75,6 @@ tokensUtil.prototype.createUserPasswordToken = function( password ) {
 		response.error = "Problema interno";
 		response.message = "Houve um erro interno, nossos engenheiros ja receberam o log estao trabalhando no caso";
 
-		// console.log( e.message );
 		return sucess( response );
 
 	}

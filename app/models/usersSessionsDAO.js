@@ -7,7 +7,6 @@
 		_id: 		ObjectId(),	// Objeto Id do proprio MongoDB para indexacao
 		user_id: 	ObjectId(),	// Id do usuario da collection Users
 		email: 		String,
-		link: 		String,		// Link do usuario da collection Users
 		token: 		HashString, // Token de autenticacao
 		token_type: String,		// Tipo do Token de acesso
 		expire: 	Bool,
@@ -22,6 +21,12 @@
  	OBS, nao tem DELETED, o DELETED ira para um historico UsersSessionsHistory por exemplo
  */
 
+
+/**
+ *	Construtor, ao instanciar, seleciona o DB e a collection onde sera feita as requisicoes
+ *
+ *	@param obj 													connection 	Obj de Conezao
+ */
 function UsersSessionsDAO(connection)
 {
 
@@ -31,6 +36,10 @@ function UsersSessionsDAO(connection)
 
 }
 
+
+/**
+ *  Insert new session ( SQL: INSERT INTO users_sessions ( collums ) VALUES ( values) )
+ */
 UsersSessionsDAO.prototype.createSession = function( objSessionStructure )
 {
 
@@ -77,6 +86,10 @@ UsersSessionsDAO.prototype.createSession = function( objSessionStructure )
 
 }
 
+
+/**
+ *  Verifica se a sessao e valida ( SQL: SELECT * FROM users_sessions WHERE token="token" )
+ */
 UsersSessionsDAO.prototype.isValidSession = function( token )
 {
 
@@ -97,7 +110,6 @@ UsersSessionsDAO.prototype.isValidSession = function( token )
 			fields = {
 				_id: 		1,
 				user_id: 	1,
-				link: 		1,
 				token: 		1,
 			};
 
@@ -134,6 +146,9 @@ UsersSessionsDAO.prototype.isValidSession = function( token )
 
 }
 
+/**
+ *  Remove uma sessao valida ( SQL: DELETE FROM users_sessions WHERE token="token" )
+ */
 UsersSessionsDAO.prototype.deleteSession = function( token )
 {
 

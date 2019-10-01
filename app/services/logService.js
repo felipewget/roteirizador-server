@@ -1,12 +1,12 @@
-
 /**
  * logService
+ *
  * @description Contem metodos de processamento relacionado aos logs do sistema,
  *              sendo que salva os logs em um banco de dados diferente da aplicacao
  *              principal
- * @author Fe Oliveira
+ *
+ * @author Fe Oliveira<felipe.wget@gmail.com>
  */
-
 var logService = function() {} // logService constructor
 
 /**

@@ -1,15 +1,16 @@
 
 /**
- *  Autentication/Register Routes
- *  This archive has routes about register, logout and authentications
+ *  Autentication/Register Rotas
+ * Este arquivo contem rotas de autenticacao e registro
  */
 module.exports = function(app){
 
     let authController      = require("./../controllers/authController.js");
     let registerController  = require("./../controllers/registerController.js");
 
+
 		/**
-		 *  Check login and password to user`s login
+		 *  Verfifica o login do usuario
      *
      *  @method   POST
      *
@@ -22,8 +23,9 @@ module.exports = function(app){
 			( new authController() ).authenticate( req, res, app );
 		});
 
+
 		/**
-		 *  Check Oauth token of account, if is valid session
+		 *  Verifica se o token de autenticacao do usuario e valido
      *
      *  @method   GET
      *
@@ -35,8 +37,9 @@ module.exports = function(app){
 			( new authController() ).isAuthenticated( req, res, app );
 		});
 
+
 		/**
-		 *  Make user`s logout
+		 *  Faz o logout do usuario
      *
      *  @method DELETE
      *
@@ -48,15 +51,15 @@ module.exports = function(app){
 			( new authController() ).logout( req, res, app );
 		} );
 
+
 		/**
-		 *  Register new user
+		 *  Registra novo usuario
      *
      *  @method   POST
      *
-		 *  @param    string  name        First name and Last name
+		 *  @param    string  name
      *  @param    string  login       Email
      *  @param    string  password
-     *  @param    string  gender      Values Allowed is m|f
      *
      *  @return   json
 		 */

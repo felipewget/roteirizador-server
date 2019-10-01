@@ -1,3 +1,7 @@
+/**
+ *  Reddis Auth Connection
+ */
+
 redis_connect = {
     "user"    : "",
     "password": "",

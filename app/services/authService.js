@@ -1,7 +1,14 @@
-var authService = function() {} // authService constructor
+/**
+ * authService
+ *
+ * @description Contem servicos relacionados a atenticacao
+ *
+ * @author Fe Oliveira<felipe.wget@gmail.com>
+ */
+ var authService = function() {} // authService constructor
 
 /**
- *	Authenticate and login of profile user per login and password
+ *	Autentica com login e password
  *
  *	@param string login
  *	@param string password
@@ -97,7 +104,7 @@ authService.prototype.authenticate = async function( login, password, app ) {
 }
 
 /**
- *	Verify token and check if session is valid
+ *	Verifica o token e verifica se a sessao e valida
  *
  *	@param 	string token
  *	@param 	obj 	 app
@@ -171,7 +178,7 @@ authService.prototype.isAuthenticated = async function( token, app ) {
 }
 
 /**
- *	Make loggout of token
+ *	Faz loggout do token
  *
  *	@param string token
  *	@param obj 		app

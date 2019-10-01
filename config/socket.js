@@ -1,3 +1,6 @@
+/**
+ *  WebSocket Connections
+ */
 module.exports = function(io, app){
 
 	io.sockets.on('connection', function( client ){

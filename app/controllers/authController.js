@@ -1,5 +1,24 @@
+/**
+ *	authController
+ *
+ *	Controler com metodos relacionados a autenticacao
+ *
+ *	@author 	Fe Oliveira<felipe.wget@gmail.com>
+ * 	@version 	0.0.1
+ */
 var authController = function() {} // authController constructor
 
+
+/**
+ *  Verfifica o login do usuario
+ *
+ *  @method   POST
+ *
+ *  @param    string login
+ *  @param    string password
+ *
+ *  @return   json
+ */
 authController.prototype.authenticate = async function(req, res, app) {
 
 	var authService = new ( require("./../services/authService.js") )();
@@ -18,6 +37,16 @@ authController.prototype.authenticate = async function(req, res, app) {
 
 }
 
+
+/**
+ *  Verifica se o token de autenticacao do usuario e valido
+ *
+ *  @method   GET
+ *
+ *  @param    string token
+ *
+ *  @return   json
+ */
 authController.prototype.isAuthenticated = async function(req, res, app) {
 
 	var authService = new ( require("./../services/authService.js") )();
@@ -33,6 +62,16 @@ authController.prototype.isAuthenticated = async function(req, res, app) {
 
 }
 
+
+/**
+ *  Faz o logout do usuario
+ *
+ *  @method DELETE
+ *
+ *  @param  string token
+ *
+ *  @return json
+ */
 authController.prototype.logout = async function(req, res, app) {
 
 	var authService = new ( require("./../services/authService.js") )();

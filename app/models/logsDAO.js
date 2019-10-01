@@ -1,4 +1,3 @@
-
 /**
  * Collection logsDAO
  * @description Em um banco de dados separado da aplicacao principal, armazena os logs do sistema, como por exemplo:
