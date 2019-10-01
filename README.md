@@ -30,5 +30,4 @@ basta digitar nO Terminal/CMD <b>node app</b> ou <b>nodemon app</b> na raíz do 
 
 ### Observacōes e melhorias
 
-- Vou refatorar esse codigo, ele nao esta ruim mas nem todos os metodos estao documentados
-- Criar validacoes, o projeto ainda nao esta pronto, vou adicionar validaçōes
+- Usar WebSocket/GraphQL ao inves de Rest
